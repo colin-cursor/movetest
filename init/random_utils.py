@@ -85,3 +85,30 @@ def random_choice(items: List) -> Optional:
     if not items:
         return None
     return random.choice(items)
+
+
+def generate_random_float(min_val: float = 0.0, max_val: float = 1.0) -> float:
+    """
+    Generate a random float between min_val and max_val.
+    
+    Args:
+        min_val: Minimum value (inclusive)
+        max_val: Maximum value (inclusive)
+    
+    Returns:
+        A random float in the specified range
+    """
+    return random.uniform(min_val, max_val)
+
+
+def generate_random_boolean(probability: float = 0.5) -> bool:
+    """
+    Generate a random boolean value.
+    
+    Args:
+        probability: Probability of returning True (default: 0.5)
+    
+    Returns:
+        A random boolean value
+    """
+    return random.random() < probability

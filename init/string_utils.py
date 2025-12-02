@@ -76,3 +76,35 @@ def remove_whitespace(text: str, preserve_single_space: bool = False) -> str:
     if preserve_single_space:
         return ' '.join(text.split())
     return ''.join(text.split())
+
+
+def is_palindrome(text: str, case_sensitive: bool = False) -> bool:
+    """
+    Check if a string is a palindrome.
+    
+    Args:
+        text: The string to check
+        case_sensitive: Whether to consider case when checking
+    
+    Returns:
+        True if the string is a palindrome, False otherwise
+    """
+    if not case_sensitive:
+        text = text.lower()
+    # Remove spaces and special characters for comparison
+    clean_text = ''.join(char for char in text if char.isalnum())
+    return clean_text == clean_text[::-1]
+
+
+def snake_to_camel(text: str) -> str:
+    """
+    Convert snake_case to camelCase.
+    
+    Args:
+        text: The snake_case string to convert
+    
+    Returns:
+        The string in camelCase format
+    """
+    components = text.split('_')
+    return components[0] + ''.join(word.capitalize() for word in components[1:])
