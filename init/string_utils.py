@@ -43,10 +43,16 @@ def truncate_string(text: str, max_length: int, suffix: str = "...") -> str:
     Returns:
         The truncated string with suffix if applicable
     """
+    if max_length <= 0:
+        return ""
+
     if len(text) <= max_length:
         return text
-    
-    return text[:max_length - len(suffix)] + suffix
+
+    if len(suffix) >= max_length:
+        return suffix[:max_length]
+
+    return text[: max_length - len(suffix)] + suffix
 
 
 def count_words(text: str) -> int:
